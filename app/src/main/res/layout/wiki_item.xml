@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <import type="android.text.Html"/>
+        <variable name="Wiki" type="com.danlos.test.wikilite.model.Wiki"/>
+    </data>
+    <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/card_view_margin"
+
+    >
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/small_padding"
+        >
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@{Wiki.title, default = Title}"
+                      android:textAppearance="@style/TextAppearance.AppCompat.Title"
+                      android:textColor="@color/colorPrimary"
+            />
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:text="@{Html.fromHtml(Wiki.snippet), default = Description}"
+            />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
